@@ -34,3 +34,17 @@ inputUpload.addEventListener("change", async (evento) => {
     }
   }
 });
+
+const inputTags = document.getElementById("input-tags");
+inputTags.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const tagTexto = inputTags.value.trim();
+    if (tagTexto !== "") {
+      const tagNova = document.createElement("li");
+      tagNova.innerHTML = `<p>${tagTexto}</p> <img src='./img/close-black.svg' alt='close' class='remove-tag'`;
+      document.querySelector(".lista-tags").appendChild(tagNova);
+      inputTags.value = "";
+    }
+  }
+});
