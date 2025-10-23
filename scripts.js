@@ -36,8 +36,8 @@ inputUpload.addEventListener("change", async (evento) => {
 });
 
 const listaTags = document.querySelector(".lista-tags");
-
 const inputTags = document.getElementById("input-tags");
+
 inputTags.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -57,3 +57,21 @@ listaTags.addEventListener("click", (event) => {
     listaTags.removeChild(tagRemovida);
   }
 });
+
+const tagsDisponiveis = [
+  "Front-end",
+  "Programação",
+  "data Science",
+  "Full-stack",
+  "HTML",
+  "CSS",
+  "javaScript",
+];
+
+async function verificaTags(tagTexto) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(tagsDisponiveis.includes(tagTexto));
+    }, 1000);
+  });
+}
