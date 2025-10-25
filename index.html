@@ -1,101 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
-    <title>CodeConnect</title>
-  </head>
 
-  <body>
-    <aside class="container-sidebar">
-      <div class="container-logo">
-        <img class="logo" src="./img/Logo.svg" alt="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <title>CodeConnect!</title>
+</head>
+
+<body>
+  <aside class="container-sidebar">
+    <div class="container-logo">
+      <img class="logo" src="./img/Logo.svg" alt="" />
+    </div>
+    <nav>
+      <ul class="container-menu">
+        <li class="container-itens">
+          <a href="" class="btn-publicar">Publicar</a>
+        </li>
+        <li class="container-itens">
+          <img class="item-menu" src="./img/feed.svg" alt="" />
+          Feed
+        </li>
+        <li class="container-itens">
+          <img class="item-menu" src="./img/account_circle.svg" alt="" />
+          Perfil
+        </li>
+        <li class="container-itens">
+          <img class="item-menu" src="./img/info.svg" alt="" />
+          Sobre nós
+        </li>
+        <li class="container-itens">
+          <img class="item-menu" src="./img/logout.svg" alt="" />
+          Sair
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="container-projeto">
+    <section class="container-upload">
+      <div class="display-image">
+        <img src="./img/imagem1.png" alt="" class="main-imagem" />
       </div>
-      <nav>
-        <ul class="container-menu">
-          <li class="container-itens">
-            <a href="" class="btn-publicar">Publicar</a>
-          </li>
-          <li class="container-itens">
-            <img class="item-menu" src="./img/feed.svg" alt="" />
-            Feed
-          </li>
-          <li class="container-itens">
-            <img class="item-menu" src="./img/account_circle.svg" alt="" />
-            Perfil
-          </li>
-          <li class="container-itens">
-            <img class="item-menu" src="./img/info.svg" alt="" />
-            Sobre nós
-          </li>
-          <li class="container-itens">
-            <img class="item-menu" src="./img/logout.svg" alt="" />
-            Sair
-          </li>
-        </ul>
-      </nav>
-    </aside>
-    <main class="container-projeto">
-      <section class="container-upload">
-        <div class="display-image">
-          <img src="./img/imagem1.png" alt="" class="main-imagem" />
-        </div>
 
-        <button id="upload-btn" class="btn-carregar">carregar imagem</button>
-        <input
-          type="file"
-          id="image-upload"
-          accept="image/*"
-          style="display: none"
-        />
+      <button id="upload-btn" class="btn-carregar">carregar imagem</button>
+      <input type="file" id="image-upload" accept="image/*" style="display: none" />
 
-        <div class="img-desc">
-          <p>image_projeto.png</p>
-          <img src="./img/close.svg" alt="" />
+      <div class="img-desc">
+        <p>image_projeto.png</p>
+        <img src="./img/close.svg" alt="" />
+      </div>
+    </section>
+    <section class="container-ifo__projeto">
+      <h1 class="projeto-title">Novo projeto</h1>
+      <form action="">
+        <div class="nome-projeto">
+          <label for="">
+            Nome do projeto
+            <input type="text" />
+          </label>
         </div>
-      </section>
-      <section class="container-ifo__projeto">
-        <h1 class="projeto-title">Novo projeto</h1>
-        <form action="">
-          <div class="nome-projeto">
-            <label for="">
-              Nome do projeto
-              <input type="text" />
-            </label>
-          </div>
-          <div class="projeto-desc">
-            <label for="">
-              Descrição
-              <textarea name="" id=""></textarea>
-            </label>
-          </div>
-          <div class="projeto-tag">
-            <label for="">
-              Tags
-              <input id="input-tags" type="text" />
-            </label>
-          </div>
-          <ul class="lista-tags">
-            <!-- <li>
+        <div class="projeto-desc">
+          <label for="">
+            Descrição
+            <textarea name="" id=""></textarea>
+          </label>
+        </div>
+        <div class="projeto-tag">
+          <label for="">
+            Tags
+            <input id="input-tags" type="text" />
+          </label>
+        </div>
+        <ul class="lista-tags">
+          <!-- <li>
               <p>front-end</p>
               <img src="./img/close-black.svg" alt="" />
             </li>
             <li>
               <p>node</p>
               <img src="./img/close-black.svg" alt="" /> -->
-            </li>
-          </ul>
-        </form>
-        <div class="projeto-btn">
-          <button id="decartar" class="btn-decartar">Descartar</button>
-          <button id="publicar" class="publicar-proj">Publicar</button>
-        </div>
-      </section>
-    </main>
+          </li>
+        </ul>
+      </form>
+      <div class="projeto-btn">
+        <button id="decartar" class="btn-decartar">Descartar</button>
+        <button id="publicar" class="publicar-proj">Publicar</button>
+      </div>
+    </section>
+  </main>
 
-    <script src="scripts.js"></script>
-  </body>
+  <script src="scripts.js"></script>
+</body>
+
 </html>

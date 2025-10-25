@@ -38,19 +38,6 @@ inputUpload.addEventListener("change", async (evento) => {
 const listaTags = document.querySelector(".lista-tags");
 const inputTags = document.getElementById("input-tags");
 
-inputTags.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    const tagTexto = inputTags.value.trim();
-    if (tagTexto !== "") {
-      const tagNova = document.createElement("li");
-      tagNova.innerHTML = `<p>${tagTexto}</p> <img src='./img/close-black.svg' alt='close' class='remove-tag'>`;
-      listaTags.appendChild(tagNova);
-      inputTags.value = "";
-    }
-  }
-});
-
 listaTags.addEventListener("click", (event) => {
   if (event.target.classList.contains("remove-tag")) {
     const tagRemovida = event.target.parentElement;
@@ -59,10 +46,10 @@ listaTags.addEventListener("click", (event) => {
 });
 
 const tagsDisponiveis = [
-  "Front-end",
-  "Programação",
+  "front-end",
+  "programação",
   "data Science",
-  "Full-stack",
+  "full-stack",
   "HTML",
   "CSS",
   "javaScript",
@@ -75,3 +62,26 @@ async function verificaTags(tagTexto) {
     }, 1000);
   });
 }
+
+inputTags.addEventListener("keydown", async (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const tagTexto = inputTags.value.trim();
+    if (tagTexto !== "") {
+      try {
+        const tagExite = await verificaTags(tagTexto);
+        if (tagExite) {
+          const tagNova = document.createElement("li");
+          tagNova.innerHTML = `<p>${tagTexto}</p> <img src='./img/close-black.svg' alt='close' class='remove-tag'>`;
+          listaTags.appendChild(tagNova);
+          inputTags.value = "";
+        } else {
+          alert("Tag não encontrada");
+          inputTags.value = "";
+        }
+      } catch (erro) {
+        console.error("Erro ao verificar a tag: ", erro);
+      }
+    }
+  }
+});
