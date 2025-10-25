@@ -105,3 +105,16 @@ btnPublicarProj.addEventListener("click", async (evento) => {
   console.log("Descrição do Projeto:", dscricaoProjeto);
   console.log("Tags do Projeto:", tagsProjeto);
 });
+
+async function publicarProjeto(nomeProjeto, dscricaoProjeto, tagsProjeto) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const deucerto = Math.random() > 0.5;
+      if (deucerto) {
+        resolve("Projeto publicado com sucesso!");
+      } else {
+        reject("Erro ao publicar o projeto.");
+      }
+    }, 2000);
+  });
+}
