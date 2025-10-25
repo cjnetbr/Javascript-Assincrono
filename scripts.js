@@ -76,12 +76,32 @@ inputTags.addEventListener("keydown", async (event) => {
           listaTags.appendChild(tagNova);
           inputTags.value = "";
         } else {
-          alert("Tag não encontrada");
+          alert(
+            "Tag não Tag não encontrada. Por favor, insira uma tag válida."
+          );
           inputTags.value = "";
         }
       } catch (erro) {
         console.error("Erro ao verificar a tag: ", erro);
+        alert(
+          "Erro ao verificar a existência da tag. Verifique o console para mais detalhes."
+        );
       }
     }
   }
+});
+
+const btnPublicarProj = document.querySelector(".publicar-proj");
+
+btnPublicarProj.addEventListener("click", async (evento) => {
+  evento.preventDefault();
+  const nomeProjeto = document.querySelector("#nome").value;
+  const dscricaoProjeto = document.querySelector("#descricao").value;
+  const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map(
+    (tag) => tag.textContent
+  );
+
+  console.log("Nome do Projeto:", nomeProjeto);
+  console.log("Descrição do Projeto:", dscricaoProjeto);
+  console.log("Tags do Projeto:", tagsProjeto);
 });
