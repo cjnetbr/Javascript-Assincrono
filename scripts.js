@@ -93,6 +93,19 @@ inputTags.addEventListener("keydown", async (event) => {
 
 const btnPublicarProj = document.querySelector(".publicar-proj");
 
+async function publicarProjeto(nomeProjeto, dscricaoProjeto, tagsProjeto) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const deuCerto = Math.random() > 0.5;
+      if (deuCerto) {
+        resolve("Projeto publicado com sucesso!");
+      } else {
+        reject("Erro ao publicar o projeto.");
+      }
+    }, 2000);
+  });
+}
+
 btnPublicarProj.addEventListener("click", async (evento) => {
   evento.preventDefault();
   const nomeProjeto = document.querySelector("#nome").value;
@@ -101,20 +114,22 @@ btnPublicarProj.addEventListener("click", async (evento) => {
     (tag) => tag.textContent
   );
 
-  console.log("Nome do Projeto:", nomeProjeto);
-  console.log("Descrição do Projeto:", dscricaoProjeto);
-  console.log("Tags do Projeto:", tagsProjeto);
-});
+  // console.log("Nome do Projeto:", nomeProjeto);
+  // console.log("Descrição do Projeto:", dscricaoProjeto);
+  // console.log("Tags do Projeto:", tagsProjeto);
 
-async function publicarProjeto(nomeProjeto, dscricaoProjeto, tagsProjeto) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const deucerto = Math.random() > 0.5;
-      if (deucerto) {
-        resolve("Projeto publicado com sucesso!");
-      } else {
-        reject("Erro ao publicar o projeto.");
-      }
-    }, 2000);
-  });
-}
+  try {
+    const resultado = await publicarProjeto(
+      nomeProjeto,
+      dscricaoProjeto,
+      tagsProjeto
+    );
+    console.log(resultado);
+    alert("Projeto publicado com sucesso!");
+  } catch (erro) {
+    console.error("Erro ao publicar o projeto: ", erro);
+    alert(
+      "Erro ao publicar o projeto. Verifique o console para mais detalhes."
+    );
+  }
+});
